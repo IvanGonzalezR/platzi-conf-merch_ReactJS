@@ -16,7 +16,9 @@ const useGoogleAddress = (address) => {
     (async function fetchData() {
       try {
         const response = await axios.get(API);
-        setMap(response.data);
+        console.log('map');
+        console.log(response.data.data[ 0 ]);
+        setMap(response.data.data[ 0 ]);
       } catch (error) {
         console.log(error);
       }
