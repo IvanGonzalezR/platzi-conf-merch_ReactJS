@@ -1,6 +1,13 @@
 import React from 'react'
 
 const Product = ({ product, handleAddToCart }) => {
+  const [ label, setLabel ] = React.useState('Comprar');
+
+  const changeLabel = () => {
+    label === 'Comprar'
+      ? setLabel('Vender')
+      : setLabel('Comprar')
+  }
   return (
     <div className='Products-item'>
       <img src={product.image} alt={product.title} />
@@ -13,7 +20,10 @@ const Product = ({ product, handleAddToCart }) => {
         </h2>
         <p>{product.description}</p>
       </div>
-      <button type='button' onClick={() => handleAddToCart(product)}>Comprar</button>
+      <button type='button' onClick={() => {
+        handleAddToCart(product);
+        changeLabel();
+      }}>{label}</button>
     </div>
   )
 }

@@ -1,4 +1,5 @@
 /** @type {import('jest').Config} */
+
 const config = {
   moduleNameMapper: {
     '\\.(styl|css)$': '<rootDir>/src/__mocks__/styleMock.js',
@@ -11,6 +12,8 @@ const config = {
       '<rootDir>/recipes/$1',
     ],
   },
+  "testEnvironment": "jsdom",
+  "verbose": true
 };
 
 module.exports = config;
